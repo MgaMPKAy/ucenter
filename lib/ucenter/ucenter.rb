@@ -28,7 +28,7 @@ module UCenter
       uc_api_post('user', 'synlogin', {uid: uid})
     end
 
-    def user_register(username, password, email, mobile)
+    def user_register(username, password, email, mobile = nil)
       new_uid = uc_api_post('user', 'register',  {username: encode(username), password: password, email: email, questionid: '', answer: mobile, regip: ''}).to_i
       new_uid > 0 ? new_uid : 0
     end
